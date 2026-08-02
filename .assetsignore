@@ -12,6 +12,9 @@ bun.lock
 bun.lockb
 yarn.lock
 pnpm-lock.yaml
+wrangler.jsonc
+wrangler.toml
+wrangler.json
 
 # Docs and local tooling
 README.md
