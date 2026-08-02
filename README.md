@@ -70,7 +70,7 @@ This is a **static HTML site** — no build step.
 | **Build output directory** | `/` (root) |
 | **Deploy command** | *(leave empty)* |
 
-`_redirects` and `_headers` in the repo root are used automatically. No `wrangler.toml` is needed for static Pages.
+`_redirects` and `_headers` in the repo root are used automatically. `wrangler.jsonc` pins the Pages project name and output directory for CI deploys.
 
 #### Option B — Custom deploy command (CI/CD)
 
@@ -109,8 +109,8 @@ Do **not** use `npx wrangler deploy` — that is for Workers, not Pages.
 
 | Error | Fix |
 |-------|-----|
-| `Configuration file for Pages projects does not support 'assets'` | Delete `wrangler.toml` (not needed for static Pages) |
-| `wrangler: not found` | Run `npm install` before deploy |
+| `Configuration file for Pages projects does not support 'assets'` | Use `pages_build_output_dir` in `wrangler.jsonc` (not Workers `assets`) |
+| `wrangler: not found` | Commit `package-lock.json`, run `npm ci`, and use `npx wrangler` in deploy scripts |
 | Auth / token errors | Remove `CLOUDFLARE_API_TOKEN` from build env; run `npx wrangler login` locally |
 | Build init timeout | Confirm branch has the full site; set framework to **None**; clear build command |
 
