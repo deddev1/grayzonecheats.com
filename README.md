@@ -70,22 +70,21 @@ This is a **static HTML site** — no build step.
 | **Build output directory** | `/` (root) |
 | **Deploy command** | *(leave empty)* |
 
-`_redirects` and `_headers` in the repo root are used automatically. `wrangler.jsonc` pins the Pages project name and output directory for CI deploys.
+`_redirects` and `_headers` in the repo root are used automatically. `wrangler.jsonc` configures Workers static assets for CI deploys.
 
-#### Option B — Custom deploy command (CI/CD)
+#### Option B — Workers Builds (CI/CD)
 
 1. In Cloudflare **Settings → Build**, **remove** the `CLOUDFLARE_API_TOKEN` environment variable.
-2. Set the **Deploy command** to:
+2. Set build and deploy commands:
 
-```bash
-npm run deploy
-```
+| Setting | Value |
+|---------|-------|
+| **Build command** | `npm run build` |
+| **Deploy command** | `npx wrangler deploy` |
 
-This runs:
+`wrangler.jsonc` uses Workers static assets (`assets.directory: "."`). `_redirects`, `_headers`, and `.assetsignore` are applied automatically.
 
-```bash
-wrangler pages deploy . --project-name=grayzonewarfare
-```
+Alternatively, set deploy command to `npm run deploy` to run the SEO build step and deploy in one step.
 
 Cloudflare Workers Builds inject their own credentials in CI — no API token env var is needed.
 
@@ -103,16 +102,15 @@ For interactive login + deploy in one step:
 npm run deploy:local
 ```
 
-Do **not** use `npx wrangler deploy` — that is for Workers, not Pages.
-
 **Common deploy errors:**
 
 | Error | Fix |
 |-------|-----|
-| `Configuration file for Pages projects does not support 'assets'` | Use `pages_build_output_dir` in `wrangler.jsonc` (not Workers `assets`) |
+| `Missing entry-point to Worker script or to assets directory` | Ensure `wrangler.jsonc` has `"assets": { "directory": "." }` and deploy uses `npx wrangler deploy` |
+| `Configuration file for Pages projects does not support 'assets'` | You are on Pages deploy (`wrangler pages deploy`); use Workers deploy (`npx wrangler deploy`) with `assets` config instead |
 | `wrangler: not found` | Commit `package-lock.json`, run `npm ci`, and use `npx wrangler` in deploy scripts |
 | Auth / token errors | Remove `CLOUDFLARE_API_TOKEN` from build env; run `npx wrangler login` locally |
-| Build init timeout | Confirm branch has the full site; set framework to **None**; clear build command |
+| Build init timeout | Confirm branch has the full site; set framework to **None** |
 
 Custom domain: add `grayzonecheats.com` under **Custom domains** after a successful deploy.
 

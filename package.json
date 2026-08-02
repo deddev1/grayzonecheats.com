@@ -6,9 +6,8 @@
   },
   "scripts": {
     "build": "python3 scripts/seo-optimize.py && node scripts/seo-verify.mjs",
-    "pages:deploy": "npx wrangler pages deploy . --project-name=grayzonewarfare",
-    "deploy": "npm run build && npm run pages:deploy",
-    "deploy:local": "npm run build && npx wrangler login && npm run pages:deploy"
+    "deploy": "npm run build && npx wrangler deploy",
+    "deploy:local": "npm run build && npx wrangler login && npx wrangler deploy"
   },
   "devDependencies": {
     "wrangler": "^4.114.0"
