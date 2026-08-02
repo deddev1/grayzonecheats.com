@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+
+# Legal pages are noindex but crawlable for discovery
+Sitemap: https://grayzonecheats.com/sitemap.xml
+Sitemap: https://grayzonecheats.com/sitemap-images.xml

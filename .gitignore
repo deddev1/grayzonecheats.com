@@ -1,0 +1,4 @@
+cloudflared
+node_modules/
+.wrangler/
+.dev.vars

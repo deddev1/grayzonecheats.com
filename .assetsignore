@@ -1,0 +1,19 @@
+# Dev / tooling (must not be published as static assets)
+node_modules/
+.wrangler/
+.dev.vars
+.git/
+.gitignore
+
+# Package manager files
+package.json
+package-lock.json
+bun.lock
+bun.lockb
+yarn.lock
+pnpm-lock.yaml
+
+# Docs and local tooling
+README.md
+scripts/
+cloudflared

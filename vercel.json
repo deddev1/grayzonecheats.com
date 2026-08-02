@@ -1,0 +1,23 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.grayzonecheats.com" }],
+      "destination": "https://grayzonecheats.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "grayzonewarfare.com" }],
+      "destination": "https://grayzonecheats.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.grayzonewarfare.com" }],
+      "destination": "https://grayzonecheats.com/:path*",
+      "permanent": true
+    }
+  ]
+}

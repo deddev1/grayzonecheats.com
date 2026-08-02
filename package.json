@@ -1,0 +1,12 @@
+{
+  "name": "grayzonecheats",
+  "private": true,
+  "scripts": {
+    "build": "python3 scripts/seo-optimize.py && node scripts/seo-verify.mjs",
+    "deploy": "npm run build && wrangler pages deploy . --project-name=grayzonewarfare",
+    "deploy:local": "npm run build && wrangler login && wrangler pages deploy . --project-name=grayzonewarfare"
+  },
+  "devDependencies": {
+    "wrangler": "^4.114.0"
+  }
+}

@@ -1,0 +1,12 @@
+# Apache — force HTTPS and non-www canonical host
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^www\.grayzonecheats\.com$ [NC]
+RewriteRule ^ https://grayzonecheats.com%{REQUEST_URI} [L,R=301]
+
+# Legacy domain → canonical host
+RewriteCond %{HTTP_HOST} ^(www\.)?grayzonewarfare\.com$ [NC]
+RewriteRule ^ https://grayzonecheats.com%{REQUEST_URI} [L,R=301]
