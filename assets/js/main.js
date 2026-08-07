@@ -511,3 +511,36 @@ const initBuyCorner = () => {
 };
 
 initBuyCorner();
+
+const initScrollReveal = () => {
+  const targets = document.querySelectorAll(
+    ".card-surface, .home-seo__panel, .home-seo__card, .cta-band, .page-visual, .home-seo__item, .page-hero .shell"
+  );
+  if (!targets.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) {
+    targets.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  targets.forEach((el, index) => {
+    el.classList.add("reveal-on-scroll");
+    el.style.setProperty("--reveal-delay", `${(index % 5) * 70}ms`);
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -32px 0px" }
+  );
+
+  targets.forEach((el) => observer.observe(el));
+};
+
+initScrollReveal();
