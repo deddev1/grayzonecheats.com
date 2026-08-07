@@ -1076,6 +1076,87 @@ body.nav-open { overflow: hidden; }
 
 .home-seo__card a { color: var(--color-orchid); text-decoration: underline; text-underline-offset: 2px; }
 
+/* ── Plan guide (how to choose) ── */
+.plan-guide__intro {
+  margin-top: 0.5rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+  max-width: 62ch;
+}
+
+.plan-guide__grid { margin-top: 1.15rem; }
+
+.plan-guide__card {
+  cursor: default;
+  transition: border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease, transform 0.18s ease;
+}
+
+.plan-guide__card:hover {
+  border-color: #a855f788;
+  background: linear-gradient(160deg, #7c3aed1f, #1a1626f2);
+  box-shadow: 0 0 0 1px #a855f733, 0 10px 28px #00000045;
+  transform: translateY(-2px);
+}
+
+.plan-guide__step {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-orchid);
+}
+
+.plan-guide__hint {
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.plan-guide__list {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-guide__list li {
+  position: relative;
+  margin-top: 0.55rem;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.plan-guide__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--color-orchid);
+  box-shadow: 0 0 8px #a855f766;
+}
+
+.plan-guide__note {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+}
+
+.plan-guide__checklist {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #a855f71f;
+}
+
+.plan-guide__checklist ul {
+  margin-top: 0.5rem;
+}
+
 /* ── Why Us visual section ── */
 .why-us { overflow: hidden; }
 
