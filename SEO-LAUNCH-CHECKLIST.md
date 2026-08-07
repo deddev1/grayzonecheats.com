@@ -111,6 +111,10 @@ Repeat spot checks on `esp.html` and one blog article.
 - [ ] **HTTPS** enforced on all pages (no mixed content warnings)
 - [ ] **www → apex redirect** configured in Cloudflare dashboard: `www.grayzonecheats.com` → `https://grayzonecheats.com/` (301)
 - [ ] **Legacy domain redirects** (if any) point to `https://grayzonecheats.com/`
+- [ ] **DNS proxied** — `grayzonecheats.com` A/CNAME records show orange cloud (not DNS-only)
+- [ ] **No geo-blocking WAF rules** — Security → WAF has no country/region block rules
+- [ ] **Global edge delivery** — `curl -sI https://grayzonecheats.com/` returns `cf-ray` and `Content-Language: en`
+- [ ] **Worldwide schema** — Organization `areaServed` and Offer `eligibleRegion` set to Worldwide (run `npm run build`)
 - [ ] Deploy latest build: `npm run deploy`
 - [ ] Live `robots.txt` returns:
   ```
