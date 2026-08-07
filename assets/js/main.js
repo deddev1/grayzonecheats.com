@@ -372,37 +372,6 @@ if (demoRoot) {
   });
 }
 
-const reviewsCorner = document.querySelector("[data-reviews-corner]");
-if (reviewsCorner) {
-  document.body.classList.add("has-reviews-corner");
-
-  const dismissKey = "gzw-reviews-corner-dismissed";
-  const dismissBtn = reviewsCorner.querySelector("[data-reviews-corner-dismiss]");
-  const cornerLink = reviewsCorner.querySelector("[data-reviews-corner-link]");
-  const isHome = window.location.pathname === "/" || window.location.pathname.endsWith("/index.html");
-
-  if (localStorage.getItem(dismissKey) === "1") {
-    reviewsCorner.classList.add("is-hidden");
-  }
-
-  dismissBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    reviewsCorner.classList.add("is-hidden");
-    localStorage.setItem(dismissKey, "1");
-  });
-
-  cornerLink?.addEventListener("click", (e) => {
-    if (!isHome) return;
-    e.preventDefault();
-    const target = document.getElementById("reviews");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.replaceState(null, "", "#reviews");
-    }
-  });
-}
-
 const initBuyCorner = () => {
   const dismissKey = "gzw-buy-corner-dismissed";
   if (localStorage.getItem(dismissKey) === "1") return;
