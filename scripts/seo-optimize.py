@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SITE_DIRS = [ROOT, ROOT / "blog"]
 THEME = "#0a0612"
+WORLDWIDE = {"@type": "GeoShape", "name": "Worldwide"}
 ORG = {
     "@type": "Organization",
     "@id": "https://grayzonecheats.com/#organization",
@@ -18,6 +19,7 @@ ORG = {
         "@type": "ImageObject",
         "url": "https://grayzonecheats.com/images/logo.png",
     },
+    "areaServed": WORLDWIDE,
 }
 WEBSITE = {
     "@type": "WebSite",
@@ -25,6 +27,7 @@ WEBSITE = {
     "name": "Gray Zone Warfare Cheats",
     "url": "https://grayzonecheats.com/",
     "publisher": {"@id": "https://grayzonecheats.com/#organization"},
+    "inLanguage": "en",
 }
 
 BLOG_BREADCRUMBS = {
@@ -247,6 +250,22 @@ def augment_schema(html: str, rel: str, noindex: bool) -> str:
     for node in graph:
         if node.get("@type") == "Article" and "publisher" not in node:
             node["publisher"] = {"@id": "https://grayzonecheats.com/#organization"}
+        if node.get("@type") == "Organization" and "areaServed" not in node:
+            node["areaServed"] = WORLDWIDE
+        if node.get("@type") == "WebSite" and "inLanguage" not in node:
+            node["inLanguage"] = "en"
+        if node.get("@type") in ("Offer", "Product", "SoftwareApplication"):
+            if "areaServed" not in node:
+                node["areaServed"] = WORLDWIDE
+            if node.get("@type") == "Offer" and "eligibleRegion" not in node:
+                node["eligibleRegion"] = WORLDWIDE
+        if node.get("@type") == "SoftwareApplication" and isinstance(node.get("offers"), list):
+            for offer in node["offers"]:
+                if isinstance(offer, dict):
+                    if "eligibleRegion" not in offer:
+                        offer["eligibleRegion"] = WORLDWIDE
+                    if "areaServed" not in offer:
+                        offer["areaServed"] = WORLDWIDE
 
     new_json = json.dumps({"@context": "https://schema.org", "@graph": graph}, separators=(",", ":"))
     return html[: m.start(1)] + new_json + html[m.end(1) :]

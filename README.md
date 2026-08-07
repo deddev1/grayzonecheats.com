@@ -109,6 +109,35 @@ npm run deploy:local
 
 Custom domain: add `grayzonecheats.com` under **Custom domains** after a successful deploy.
 
+### Global availability (all regions)
+
+The site is served from **Cloudflare’s global edge network** (300+ cities). No code changes are required for worldwide delivery — every visitor is routed to the nearest Cloudflare data center automatically.
+
+Confirm these **Cloudflare dashboard** settings so nothing blocks access by country or region:
+
+| Setting | Where | Required value |
+|---------|-------|----------------|
+| **DNS proxy** | DNS → Records | `grayzonecheats.com` and `www` records are **Proxied** (orange cloud) |
+| **SSL/TLS mode** | SSL/TLS → Overview | **Full** or **Full (strict)** |
+| **Geo-blocking** | Security → WAF → Custom rules | **No rules** that block or challenge by country/region |
+| **Bot Fight Mode** | Security → Bots | Off, or tuned so real users are not blocked in any region |
+| **Under Attack mode** | Quick Actions | Off unless you are actively mitigating an attack |
+
+**SEO signals for worldwide indexing** (already in the repo):
+
+- `hreflang="en"` + `hreflang="x-default"` on every indexable page
+- `robots.txt` allows all crawlers (`Allow: /`)
+- Structured data marks `areaServed` and `eligibleRegion` as **Worldwide**
+- `Content-Language: en` response header via `_headers`
+
+After deploy, verify from any region:
+
+```bash
+curl -sI https://grayzonecheats.com/ | grep -iE 'HTTP|cf-ray|content-language'
+```
+
+A `cf-ray` header ending in different airport codes (e.g. `IAD`, `LHR`, `SIN`) confirms traffic is served from that region’s edge.
+
 ### Other hosts
 
 Point DNS to Netlify, Vercel, or Apache. Redirect rules in `_redirects`, `vercel.json`, and `.htaccess` enforce HTTPS, non-www, and redirect the legacy `grayzonewarfare.com` domain.
