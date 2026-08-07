@@ -2613,13 +2613,6 @@ button.gallery__info-card.is-active {
     transform: none;
     transition: none;
   }
-
-  .card-surface:hover,
-  .home-seo__card:hover,
-  .cta-band:hover,
-  .page-visual:hover img {
-    transform: none;
-  }
 }
 
 /* ── Responsive ── */
