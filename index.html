@@ -462,28 +462,144 @@
           <p style="margin-top:0.85rem;color:var(--color-muted);line-height:1.65">Searches for <strong>Gray Zone Warfare radar</strong> usually describe map-level awareness. Extract markers, loot ESP, and quest highlights cover that use case — read the dedicated <a href="/radar.html">Gray Zone Warfare Radar guide</a>. Pair ESP with the <a href="/aimbot.html">aimbot guide</a> when you need combat help at 200–600 m.</p>
         </section>
 
-        <section class="home-seo__panel card-surface" aria-labelledby="features-overview-title">
-          <h2 class="section-title" id="features-overview-title">Gray Zone Warfare features overview</h2>
-          <p style="margin-top:0.5rem;color:var(--color-muted);line-height:1.65">Every license includes the same eight official tools for Lamang Island raids. Below is what <strong>Gray Zone Warfare cheats</strong> in this package actually ship with — see the <a href="/features.html">complete feature list</a> for detail on each module.</p>
-          <p class="panel-label">Awareness &amp; routing</p>
-          <ul>
-            <li>PMC and bot ESP — hostile player and AI tracking</li>
-            <li>Loot container ESP — faster raid routing</li>
-            <li>Extract helicopter markers — plan safer exfils</li>
-            <li>Key and quest item highlights — finish contracts faster</li>
-          </ul>
-          <p class="panel-label">Combat</p>
-          <ul>
-            <li><strong>Gray Zone Warfare aimbot</strong> with FOV limit for long-range fights</li>
-            <li>No recoil tuning for sustained fire at medium range</li>
-          </ul>
-          <p class="panel-label">Utility</p>
-          <ul>
-            <li>Stream-proof overlay for capture-safe play</li>
-            <li>Cloud-DMA deployment option for compatible hardware</li>
-            <li>Monthly ($35) and lifetime ($150) package options</li>
-            <li>Setup help via the <a href="/support.html">Support page</a></li>
-          </ul>
+        <section class="home-seo__panel card-surface feature-overview" id="features-overview" data-feature-overview aria-labelledby="features-overview-title">
+          <header class="feature-overview__head">
+            <h2 class="section-title" id="features-overview-title">Gray Zone Warfare features overview</h2>
+            <p class="feature-overview__lead">Every license includes the same eight official tools for Lamang Island raids. Select a feature to preview it — see the <a href="/features.html">complete feature list</a> for full module breakdowns.</p>
+          </header>
+
+          <div class="feature-overview__filters" role="tablist" aria-label="Feature categories">
+            <button type="button" class="feature-overview__filter is-active" role="tab" aria-selected="true" data-feature-filter="all">All features</button>
+            <button type="button" class="feature-overview__filter" role="tab" aria-selected="false" data-feature-filter="awareness">Awareness</button>
+            <button type="button" class="feature-overview__filter" role="tab" aria-selected="false" data-feature-filter="combat">Combat</button>
+            <button type="button" class="feature-overview__filter" role="tab" aria-selected="false" data-feature-filter="utility">Utility</button>
+          </div>
+
+          <div class="feature-overview__layout">
+            <div class="feature-overview__grid" data-feature-list>
+              <button type="button" class="feature-overview__card is-active" data-feature-card data-feature-category="awareness"
+                data-feature-src="/images/gallery/phprcct2r_split_fecur_grayzone_scr_1.webp"
+                data-feature-alt="Gray Zone Warfare PMC and bot ESP showing hostile player boxes and distance readouts"
+                data-feature-title="PMC &amp; Bot ESP"
+                data-feature-desc="Track hostile PMCs and AI bots with boxes, health bars, and distance readouts — spot threats through jungle cover before they engage."
+                data-feature-link="/esp.html"
+                aria-pressed="true">
+                <img class="feature-overview__thumb" src="/images/gallery/phprcct2r_split_fecur_grayzone_scr_1.webp" alt="PMC and bot ESP preview thumbnail" width="120" height="68" loading="lazy" decoding="async">
+                <span class="feature-overview__card-body">
+                  <span class="feature-overview__card-title">PMC &amp; Bot ESP</span>
+                  <span class="feature-overview__card-desc">Hostile player and AI tracking</span>
+                </span>
+              </button>
+              <button type="button" class="feature-overview__card" data-feature-card data-feature-category="awareness"
+                data-feature-src="/images/gallery/phpvbu59g_split_shack_grayzone_scr_1.webp"
+                data-feature-alt="Gray Zone Warfare Loot Container ESP highlighting weapons, containers, and items with distance tags"
+                data-feature-title="Loot Container ESP"
+                data-feature-desc="Highlight loot containers and ground pickups with item names and distance filters for faster raid routing."
+                data-feature-link="/esp.html"
+                aria-pressed="false">
+                <img class="feature-overview__thumb" src="/images/gallery/phpvbu59g_split_shack_grayzone_scr_1.webp" alt="Loot container ESP preview thumbnail" width="120" height="68" loading="lazy" decoding="async">
+                <span class="feature-overview__card-body">
+                  <span class="feature-overview__card-title">Loot Container ESP</span>
+                  <span class="feature-overview__card-desc">Faster raid routing</span>
+                </span>
+              </button>
+              <button type="button" class="feature-overview__card" data-feature-card data-feature-category="awareness"
+                data-feature-src="/images/seo/lamang-open-world.webp"
+                data-feature-alt="Gray Zone Warfare Lamang Island map with extraction helicopter marker context"
+                data-feature-title="Extract Helicopter Markers"
+                data-feature-desc="See helicopter extract points live on the map so your squad can pick the safest exit when the zone is contested."
+                data-feature-link="/radar.html"
+                aria-pressed="false">
+                <img class="feature-overview__thumb" src="/images/thumbs/lamang-open-world-thumb.webp" alt="Extract helicopter markers preview thumbnail" width="120" height="68" loading="lazy" decoding="async">
+                <span class="feature-overview__card-body">
+                  <span class="feature-overview__card-title">Extract Helicopter Markers</span>
+                  <span class="feature-overview__card-desc">Plan safer exfils</span>
+                </span>
+              </button>
+              <button type="button" class="feature-overview__card" data-feature-card data-feature-category="awareness"
+                data-feature-src="/images/gallery/phpyzse0z_split_mason_grayzone_scr_1.webp"
+                data-feature-alt="Gray Zone Warfare quest ESP marking contract objectives, keys, and quest targets"
+                data-feature-title="Key &amp; Quest Highlights"
+                data-feature-desc="Mark contract objectives, key items, and quest pickups so you finish missions in fewer extractions."
+                data-feature-link="/esp.html"
+                aria-pressed="false">
+                <img class="feature-overview__thumb" src="/images/gallery/phpyzse0z_split_mason_grayzone_scr_1.webp" alt="Key and quest highlights preview thumbnail" width="120" height="68" loading="lazy" decoding="async">
+                <span class="feature-overview__card-body">
+                  <span class="feature-overview__card-title">Key &amp; Quest Highlights</span>
+                  <span class="feature-overview__card-desc">Finish contracts faster</span>
+                </span>
+              </button>
+              <button type="button" class="feature-overview__card" data-feature-card data-feature-category="combat"
+                data-feature-src="/images/gallery/phpqrej9v_split_fecur_grayzone_scr_3.webp"
+                data-feature-alt="Gray Zone Warfare aimbot menu with FOV circle and targeting settings"
+                data-feature-title="Aimbot with FOV Limit"
+                data-feature-desc="Adjustable FOV limit and targeting controls for 200–600 m engagements on Lamang Island."
+                data-feature-link="/aimbot.html"
+                aria-pressed="false">
+                <img class="feature-overview__thumb" src="/images/gallery/phpqrej9v_split_fecur_grayzone_scr_3.webp" alt="Aimbot FOV limit preview thumbnail" width="120" height="68" loading="lazy" decoding="async">
+                <span class="feature-overview__card-body">
+                  <span class="feature-overview__card-title">Aimbot with FOV Limit</span>
+                  <span class="feature-overview__card-desc">Long-range fights</span>
+                </span>
+              </button>
+              <button type="button" class="feature-overview__card" data-feature-card data-feature-category="combat"
+                data-feature-src="/images/seo/combat-preview.webp"
+                data-feature-alt="Gray Zone Warfare no recoil tuning during medium-range combat"
+                data-feature-title="No Recoil Tuning"
+                data-feature-desc="Recoil compensation keeps follow-up shots on target during full-auto bursts at medium range."
+                data-feature-link="/aimbot.html"
+                aria-pressed="false">
+                <img class="feature-overview__thumb" src="/images/thumbs/combat-preview-thumb.webp" alt="No recoil tuning preview thumbnail" width="120" height="68" loading="lazy" decoding="async">
+                <span class="feature-overview__card-body">
+                  <span class="feature-overview__card-title">No Recoil Tuning</span>
+                  <span class="feature-overview__card-desc">Sustained fire control</span>
+                </span>
+              </button>
+              <button type="button" class="feature-overview__card" data-feature-card data-feature-category="utility"
+                data-feature-src="/images/gallery/phpnvcr5b_split_fecur_grayzone_scr_2.webp"
+                data-feature-alt="Gray Zone Warfare stream-proof overlay settings in the visuals menu"
+                data-feature-title="Stream-Proof Overlay"
+                data-feature-desc="Capture-safe overlay mode stays hidden from common recording and streaming tools while remaining visible to you."
+                data-feature-link="/features.html"
+                aria-pressed="false">
+                <img class="feature-overview__thumb" src="/images/gallery/phpnvcr5b_split_fecur_grayzone_scr_2.webp" alt="Stream-proof overlay preview thumbnail" width="120" height="68" loading="lazy" decoding="async">
+                <span class="feature-overview__card-body">
+                  <span class="feature-overview__card-title">Stream-Proof Overlay</span>
+                  <span class="feature-overview__card-desc">Capture-safe play</span>
+                </span>
+              </button>
+              <button type="button" class="feature-overview__card" data-feature-card data-feature-category="utility"
+                data-feature-src="/images/gallery/phplpgtg5_split_shack_grayzone_scr_2.webp"
+                data-feature-alt="Gray Zone Warfare cheat suite with Cloud-DMA deployment option"
+                data-feature-title="Cloud-DMA Option"
+                data-feature-desc="Optional hardware-level deployment path for players who need separation between game and overlay systems."
+                data-feature-link="/features.html"
+                aria-pressed="false">
+                <img class="feature-overview__thumb" src="/images/gallery/phplpgtg5_split_shack_grayzone_scr_2.webp" alt="Cloud-DMA option preview thumbnail" width="120" height="68" loading="lazy" decoding="async">
+                <span class="feature-overview__card-body">
+                  <span class="feature-overview__card-title">Cloud-DMA Option</span>
+                  <span class="feature-overview__card-desc">Compatible hardware setups</span>
+                </span>
+              </button>
+            </div>
+
+            <aside class="feature-overview__preview" data-feature-preview aria-live="polite">
+              <figure class="feature-overview__stage media-frame" data-feature-stage>
+                <img class="feature-overview__visual" data-feature-visual
+                  src="/images/gallery/phprcct2r_split_fecur_grayzone_scr_1.webp"
+                  alt="Gray Zone Warfare PMC and bot ESP showing hostile player boxes and distance readouts"
+                  width="960" height="540" loading="eager" decoding="async">
+              </figure>
+              <div class="feature-overview__meta" data-feature-meta>
+                <p class="feature-overview__category-tag" data-feature-category-label>Awareness</p>
+                <h3 class="feature-overview__preview-title" data-feature-title>PMC &amp; Bot ESP</h3>
+                <p class="feature-overview__preview-desc" data-feature-desc>Track hostile PMCs and AI bots with boxes, health bars, and distance readouts — spot threats through jungle cover before they engage.</p>
+                <a href="/esp.html" class="feature-overview__link" data-feature-link>Read more about ESP</a>
+              </div>
+            </aside>
+          </div>
+
+          <p class="feature-overview__footnote">Monthly ($35) and lifetime ($150) plans include all eight features. Setup help is available on the <a href="/support.html">Support page</a>.</p>
         </section>
 
         <section class="home-seo__panel card-surface">

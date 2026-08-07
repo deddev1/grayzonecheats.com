@@ -372,6 +372,102 @@ if (demoRoot) {
   });
 }
 
+const featureOverview = document.querySelector("[data-feature-overview]");
+if (featureOverview) {
+  const cards = Array.from(featureOverview.querySelectorAll("[data-feature-card]"));
+  const filters = Array.from(featureOverview.querySelectorAll("[data-feature-filter]"));
+  const stage = featureOverview.querySelector("[data-feature-stage]");
+  const visual = featureOverview.querySelector("[data-feature-visual]");
+  const meta = featureOverview.querySelector("[data-feature-meta]");
+  const titleEl = featureOverview.querySelector("[data-feature-title]");
+  const descEl = featureOverview.querySelector("[data-feature-desc]");
+  const linkEl = featureOverview.querySelector("[data-feature-link]");
+  const categoryLabel = featureOverview.querySelector("[data-feature-category-label]");
+  const FADE_MS = 260;
+
+  const categoryNames = {
+    awareness: "Awareness",
+    combat: "Combat",
+    utility: "Utility",
+  };
+
+  const linkLabels = {
+    "/esp.html": "Read more about ESP",
+    "/aimbot.html": "Read more about aimbot",
+    "/radar.html": "Read more about radar",
+    "/features.html": "View full feature list",
+  };
+
+  const applyFeature = (card) => {
+    const src = card.getAttribute("data-feature-src") || "";
+    const alt = card.getAttribute("data-feature-alt") || "";
+    const title = card.getAttribute("data-feature-title") || "";
+    const desc = card.getAttribute("data-feature-desc") || "";
+    const link = card.getAttribute("data-feature-link") || "/features.html";
+    const category = card.getAttribute("data-feature-category") || "awareness";
+
+    if (visual && src) {
+      visual.setAttribute("src", src);
+      visual.setAttribute("alt", alt || title);
+    }
+    if (titleEl) titleEl.textContent = title;
+    if (descEl) descEl.textContent = desc;
+    if (categoryLabel) categoryLabel.textContent = categoryNames[category] || "Feature";
+    if (linkEl) {
+      linkEl.href = link;
+      linkEl.textContent = linkLabels[link] || "Learn more";
+    }
+  };
+
+  const selectFeature = (card) => {
+    if (card.classList.contains("is-active")) return;
+
+    cards.forEach((item) => {
+      const active = item === card;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    stage?.classList.add("is-swapping");
+    meta?.classList.add("is-swapping");
+
+    window.setTimeout(() => {
+      applyFeature(card);
+      stage?.classList.remove("is-swapping");
+      meta?.classList.remove("is-swapping");
+    }, FADE_MS);
+  };
+
+  const setFilter = (filter) => {
+    filters.forEach((btn) => {
+      const active = btn.getAttribute("data-feature-filter") === filter;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+    });
+
+    let firstVisible = null;
+    cards.forEach((card) => {
+      const category = card.getAttribute("data-feature-category") || "";
+      const visible = filter === "all" || category === filter;
+      card.classList.toggle("is-hidden", !visible);
+      if (visible && !firstVisible) firstVisible = card;
+    });
+
+    const activeCard = cards.find((card) => card.classList.contains("is-active") && !card.classList.contains("is-hidden"));
+    if (!activeCard && firstVisible) selectFeature(firstVisible);
+  };
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => selectFeature(card));
+  });
+
+  filters.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setFilter(btn.getAttribute("data-feature-filter") || "all");
+    });
+  });
+}
+
 const initBuyCorner = () => {
   const dismissKey = "gzw-buy-corner-dismissed";
   if (localStorage.getItem(dismissKey) === "1") return;
