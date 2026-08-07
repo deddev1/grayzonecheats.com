@@ -4,12 +4,7 @@ Static website for Gray Zone Warfare cheat product pages.
 
 ## Buy / checkout URL
 
-All purchase buttons link to:
-
-```
-https://zadeyo.com/go/QRH?to=%2Fproducts%2Fgray-zone-warfare
-```
-
+All purchase buttons use the checkout URL configured in `assets/js/main.js` (`BUY_URL`).
 ## Pages
 
 | Page | File |
