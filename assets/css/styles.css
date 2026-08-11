@@ -155,7 +155,7 @@ a.hero__btn,
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 120% at 50% -20%, #7c3aed2e, transparent 70%);
+  background: radial-gradient(ellipse 80% 120% at 50% -20%, #7c3aed18, transparent 70%);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -168,18 +168,17 @@ a.hero__btn,
   right: 8%;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #c084fc, #d946ef, #c084fc, transparent);
+  background: linear-gradient(90deg, transparent, #c084fc88, #d946ef88, #c084fc88, transparent);
   opacity: 0;
-  transition: opacity 0.4s ease, box-shadow 0.4s ease;
+  transition: opacity 0.4s ease;
 }
 
 .nav:hover::before,
-.nav.is-scrolled::before { opacity: 1; }
+.nav.is-scrolled::before { opacity: 0.65; }
 
 .nav:hover::after,
 .nav.is-scrolled::after {
-  opacity: 1;
-  box-shadow: 0 0 18px #a855f788;
+  opacity: 0.85;
 }
 
 .nav__bar {
@@ -204,21 +203,15 @@ a.hero__btn,
 
 .nav:hover .nav__bar,
 .nav.is-scrolled .nav__bar {
-  background: #0a0612bf;
-  backdrop-filter: blur(18px) saturate(140%);
-  border-color: #c084fc38;
-  box-shadow:
-    0 8px 32px #00000045,
-    0 0 0 1px #a855f714 inset;
+  background: #0a0612d9;
+  backdrop-filter: blur(14px) saturate(120%);
+  border-color: #c084fc28;
+  box-shadow: 0 6px 20px #00000040;
 }
 
 .nav:hover .nav__bar {
-  border-color: #c084fc70;
-  box-shadow:
-    0 10px 36px #00000050,
-    0 0 24px #a855f740,
-    0 0 48px #7c3aed1f,
-    inset 0 1px 0 #e9d5ff22;
+  border-color: #c084fc44;
+  box-shadow: 0 8px 24px #00000045;
 }
 
 .nav__brand {
@@ -233,7 +226,7 @@ a.hero__btn,
 }
 
 .nav__brand:hover {
-  filter: drop-shadow(0 0 10px #a855f766);
+  filter: drop-shadow(0 0 4px #a855f733);
 }
 
 .nav__logo {
@@ -245,8 +238,8 @@ a.hero__btn,
 }
 
 .nav__brand:hover .nav__logo {
-  transform: scale(1.04);
-  filter: drop-shadow(0 0 8px #c084fc99);
+  transform: scale(1.03);
+  filter: drop-shadow(0 0 4px #c084fc44);
 }
 
 .nav__name {
@@ -261,7 +254,7 @@ a.hero__btn,
 
 .nav__brand:hover .nav__name {
   color: #f3e8ff;
-  text-shadow: 0 0 16px #a855f766;
+  text-shadow: none;
 }
 
 .nav__center { display: flex; }
@@ -298,13 +291,12 @@ a.hero__btn,
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 0 10px #a855f7;
 }
 
 .nav__link:hover,
 .nav__link.is-active {
   color: #fff;
-  text-shadow: 0 0 14px #c084fc55;
+  text-shadow: none;
 }
 
 .nav__link:hover {
@@ -326,24 +318,17 @@ a.hero__btn,
   font-size: 1.02rem;
   padding: 0.7rem 1.55rem;
   border-radius: 999px;
-  border: 1px solid #f3e8ff70;
+  border: 1px solid #f3e8ff50;
   background: var(--gradient-brand);
-  box-shadow:
-    0 8px 22px #00000055,
-    0 0 28px #a855f788,
-    inset 0 1px 0 #ffffff30;
+  box-shadow: 0 6px 16px #00000045;
   transition: transform 0.22s ease, filter 0.22s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 .nav__buy:hover {
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-  border-color: #faf5ff99;
-  box-shadow:
-    0 12px 28px #00000060,
-    0 0 36px #c084fcaa,
-    0 0 56px #d946ef66,
-    inset 0 1px 0 #ffffff40;
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  border-color: #faf5ff70;
+  box-shadow: 0 8px 20px #00000050;
 }
 
 .nav__toggle {
@@ -357,9 +342,9 @@ a.hero__btn,
 }
 
 .nav__toggle:hover {
-  border-color: #c084fc99;
+  border-color: #c084fc70;
   background: #1a1626e6;
-  box-shadow: 0 0 16px #a855f744;
+  box-shadow: none;
 }
 
 .nav__toggle-icon,
@@ -424,9 +409,7 @@ a.hero__btn,
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
-    box-shadow:
-      0 16px 40px #00000055,
-      0 0 28px #a855f733;
+    box-shadow: 0 16px 40px #00000055;
   }
   .nav__list { flex-direction: column; gap: 0.35rem; }
   .nav__link {
