@@ -2405,7 +2405,7 @@ button.gallery__info-card.is-active {
 
 .footer__cols {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
@@ -2449,6 +2449,21 @@ button.gallery__info-card.is-active {
 }
 
 .footer__bottom a:hover { color: var(--color-orchid); }
+
+.site-guides {
+  padding: 0.25rem 0 0.5rem;
+}
+
+.site-guides__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.1rem;
+  margin-top: 0.7rem;
+}
+
+.site-guides__links a {
+  color: var(--color-orchid);
+}
 
 /* ── Site-wide readability & interactivity ── */
 .page-content {
